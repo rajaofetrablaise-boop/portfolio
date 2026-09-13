@@ -239,7 +239,7 @@ export default function Home() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {t.home.pricingPlans.map((plan, i) => (
               <Reveal key={plan.name} delay={i * 250}>
-                <div className="flex flex-col bg-[#ececee] p-8">
+                <div className="flex flex-col bg-[#ececee] p-8 pt-12 pb-12">
                   <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
                   <p className={`mt-6 text-sm ${i === 0 ? "text-transparent" : "text-muted"}`}>
                     {plan.pricePrefix}
