@@ -1,26 +1,243 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --surface: #ffffff;
+  --foreground: #18181b;
+  --muted: #71717a;
+  --border: #e4e4e7;
+  --accent: #c2410c;
+  --accent-foreground: #fff7ed;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c0c0d;
+    --surface: #151517;
+    --foreground: #f4f4f5;
+    --muted: #a1a1aa;
+    --border: #27272a;
+    --accent: #fb923c;
+    --accent-foreground: #431407;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes swipe-out-to-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100vw);
+  }
+}
+
+@keyframes swipe-out-to-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes swipe-in-from-right {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipe-in-from-left {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-swipe-out-left {
+  animation: swipe-out-to-left 380ms ease-in-out forwards;
+}
+
+.animate-swipe-out-right {
+  animation: swipe-out-to-right 380ms ease-in-out forwards;
+}
+
+.animate-swipe-in-right {
+  animation: swipe-in-from-right 380ms ease-in-out;
+}
+
+.animate-swipe-in-left {
+  animation: swipe-in-from-left 380ms ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-swipe-out-left,
+  .animate-swipe-out-right,
+  .animate-swipe-in-right,
+  .animate-swipe-in-left {
+    animation: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 200ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+  }
+}
+
+@keyframes testimonial-in-right {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes testimonial-in-left {
+  from {
+    transform: translateX(-24px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-testimonial-in-right {
+  animation: testimonial-in-right 350ms ease-out;
+}
+
+.animate-testimonial-in-left {
+  animation: testimonial-in-left 350ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-testimonial-in-right,
+  .animate-testimonial-in-left {
+    animation: none;
+  }
+}
+
+@keyframes modal-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-panel-in {
+  from {
+    transform: scale(0.95) translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-modal-overlay {
+  animation: modal-overlay-in 200ms ease-out;
+}
+
+.animate-modal-panel {
+  animation: modal-panel-in 250ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-modal-overlay,
+  .animate-modal-panel {
+    animation: none;
+  }
+}
+
+@keyframes success-circle-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes success-check-in {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-success-circle {
+  animation: success-circle-in 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-success-check {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: success-check-in 300ms ease-out 250ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-success-circle {
+    animation: none;
+  }
+  .animate-success-check {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
 }
