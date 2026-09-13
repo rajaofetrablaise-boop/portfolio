@@ -107,14 +107,14 @@ export default function Home() {
                   step={stat.value === "80+" ? 10 : 1}
                   className="text-6xl font-bold tracking-tight text-foreground sm:text-7xl"
                 />
-                <p className="mt-2 text-base text-zinc-800 dark:text-zinc-200">{stat.label}</p>
+                <p className="mt-2 text-base text-zinc-800">{stat.label}</p>
               </div>
             ))}
           </div>
         </Reveal>
       </section>
 
-      <section id="work" className="scroll-mt-20 bg-[#ececee] py-32 sm:py-40 dark:bg-zinc-900">
+      <section id="work" className="scroll-mt-20 bg-[#ececee] py-32 sm:py-40">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <h2 className="text-3xl font-semibold text-foreground">{t.home.caseStudiesHeading}</h2>
@@ -154,7 +154,7 @@ export default function Home() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="border border-zinc-400 px-4 py-1.5 text-sm text-zinc-800 dark:border-border dark:text-zinc-200"
+                        className="border border-zinc-400 px-4 py-1.5 text-sm text-zinc-800"
                       >
                         {tag}
                       </span>
