@@ -62,9 +62,10 @@ export function Footer() {
           <button
             type="button"
             onClick={handleCopyEmail}
-            className="cursor-pointer text-4xl font-bold text-foreground transition-colors hover:text-[#6200B3] sm:text-6xl"
+            className="block cursor-pointer text-left text-4xl font-bold text-foreground transition-colors hover:text-[#6200B3] sm:text-6xl"
           >
-            <CharReveal text={EMAIL} />
+            <CharReveal text="designbyblaise" className="block sm:inline" />
+            <CharReveal text="@gmail.com" className="block sm:inline" />
           </button>
           <span className="pointer-events-none absolute -top-12 right-0 overflow-hidden bg-black px-4 py-2 opacity-0 transition-opacity group-hover:opacity-100">
             <span
