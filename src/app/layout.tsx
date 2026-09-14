@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { PostHogProvider } from "@/components/posthog-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,13 +36,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <LanguageProvider>
-          <SmoothScroll />
-          <Header />
-          <main className="flex-1 pt-20">{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </LanguageProvider>
+        <PostHogProvider>
+          <LanguageProvider>
+            <SmoothScroll />
+            <Header />
+            <main className="flex-1 pt-20">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </LanguageProvider>
+        </PostHogProvider>
       </body>
     </html>
   );
