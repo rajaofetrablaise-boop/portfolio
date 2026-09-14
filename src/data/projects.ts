@@ -20,8 +20,8 @@ export const projects: Project[] = [
   {
     slug: "fintech-mobile-redesign",
     title: {
-      fr: "MondialGP | Plateforme de crowdshipping",
-      en: "MondialGP | Crowdshipping Platform",
+      fr: "Coolcolis | Plateforme de crowdshipping",
+      en: "Coolcolis | Crowdshipping Platform",
     },
     tagline: {
       fr: "Simplifier le transfert d'argent pour de nouveaux utilisateurs.",
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     year: "2024",
     tags: ["Application mobile", "Logistique"],
     gradient: ["#fdba74", "#c2410c"],
-    cover: "/CaseCover1.png?v=5",
+    cover: "/CaseCover1.png?v=6",
     externalUrl: "https://www.behance.net/gallery/255425233/UXUI-Case-Study-Crowdshipping-App",
   },
   {
