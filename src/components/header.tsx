@@ -37,7 +37,7 @@ export function Header() {
         scrolled || mobileOpen ? "bg-background" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-20 w-full max-w-6xl 2xl:max-w-7xl items-center justify-between px-6">
         <a href="#" className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-foreground">
           <Image
             src="/logo.jpg"

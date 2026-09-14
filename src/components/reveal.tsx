@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
 
 export function Reveal({
   children,
   className = "",
   delay = 0,
+  as: Component = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  as?: ElementType;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ export function Reveal({
   }, []);
 
   return (
-    <div
+    <Component
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ease-out ${
@@ -45,6 +47,6 @@ export function Reveal({
       } ${className}`}
     >
       {children}
-    </div>
+    </Component>
   );
 }

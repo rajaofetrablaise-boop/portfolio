@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useLanguage } from "@/context/language-context";
 import { testimonials } from "@/data/testimonials";
+import { Parallax } from "@/components/parallax";
 
 export function Testimonials() {
   const { lang } = useLanguage();
@@ -53,17 +54,19 @@ export function Testimonials() {
 
   return (
     <section ref={sectionRef} className="bg-black py-40">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6">
         <div className="grid grid-cols-1 sm:h-[480px] sm:grid-cols-[35%_1fr]">
           <div className="relative aspect-[4/5] w-full overflow-hidden sm:h-full sm:aspect-auto">
             {photo.image ? (
-              <Image
-                src={photo.image}
-                alt=""
-                fill
-                sizes="(min-width: 640px) 35vw, 90vw"
-                className="object-cover"
-              />
+              <Parallax strength={30} className="absolute -inset-y-12 inset-x-0">
+                <Image
+                  src={photo.image}
+                  alt=""
+                  fill
+                  sizes="(min-width: 640px) 35vw, 90vw"
+                  className="object-cover"
+                />
+              </Parallax>
             ) : (
               <div
                 className="absolute inset-0"

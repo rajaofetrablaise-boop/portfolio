@@ -11,6 +11,7 @@ import { Reveal } from "@/components/reveal";
 import { HoverCursor } from "@/components/hover-cursor";
 import { Testimonials } from "@/components/testimonials";
 import { CvModalButton } from "@/components/cv-modal-button";
+import { Parallax } from "@/components/parallax";
 
 export default function Home() {
   const { t, lang } = useLanguage();
@@ -28,7 +29,7 @@ export default function Home() {
           <source src="/12686077_1280_720_30fps.mp4" type="video/mp4" />
         </video>
 
-        <Reveal className="mx-auto w-full max-w-6xl px-6 py-32 sm:py-40">
+        <Reveal className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 py-32 sm:py-40">
           <p className="text-lg font-medium text-accent">{t.hero.kicker}</p>
           <h1 className="mt-4 max-w-4xl text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
             {t.hero.bio.split("\n").map((line, i, lines) => (
@@ -82,7 +83,7 @@ export default function Home() {
             </a>
             <Link
               href="#work"
-              className="w-full border border-foreground px-8 py-4 text-center text-base font-medium text-foreground transition-opacity hover:opacity-70 sm:w-auto"
+              className="w-full bg-white px-8 py-4 text-center text-base font-medium text-[#6200B3] transition-opacity hover:opacity-70 sm:w-auto"
             >
               {t.hero.ctaSecondary}
             </Link>
@@ -97,25 +98,27 @@ export default function Home() {
       </section>
 
       <section className="border-t border-border py-32 sm:py-40">
-        <Reveal className="mx-auto max-w-6xl px-6">
+        <Reveal className="mx-auto max-w-6xl 2xl:max-w-7xl px-6">
           <h2 className="text-3xl font-semibold text-foreground">{t.home.statsHeading}</h2>
           <div className="mt-10 grid gap-8 sm:grid-cols-3">
-            {t.home.stats.map((stat) => (
-              <div key={stat.label} className="border-b border-border pb-8 sm:border-b-0 sm:pb-0">
-                <AnimatedNumber
-                  value={stat.value}
-                  step={stat.value === "80+" ? 10 : 1}
-                  className="text-6xl font-bold tracking-tight text-foreground sm:text-7xl"
-                />
-                <p className="mt-2 text-base text-zinc-800">{stat.label}</p>
-              </div>
+            {t.home.stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 150}>
+                <div className="border-b border-border pb-8 sm:border-b-0 sm:pb-0">
+                  <AnimatedNumber
+                    value={stat.value}
+                    step={stat.value === "80+" ? 10 : 1}
+                    className="text-6xl font-bold tracking-tight text-foreground sm:text-7xl"
+                  />
+                  <p className="mt-2 text-base text-zinc-800">{stat.label}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </Reveal>
       </section>
 
       <section id="work" className="scroll-mt-20 bg-[#ececee] py-32 sm:py-40">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6">
           <Reveal>
             <h2 className="text-3xl font-semibold text-foreground">{t.home.caseStudiesHeading}</h2>
           </Reveal>
@@ -168,8 +171,10 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-black py-32">
-        <Image src="/quotebackground.png?v=2" alt="" fill className="object-cover" />
-        <Reveal className="relative mx-auto max-w-6xl px-6">
+        <Parallax strength={50} className="absolute -inset-y-16 inset-x-0">
+          <Image src="/quotebackground.png?v=2" alt="" fill className="object-cover" />
+        </Parallax>
+        <Reveal className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6">
           <svg
             aria-hidden
             xmlns="http://www.w3.org/2000/svg"
@@ -189,50 +194,50 @@ export default function Home() {
       </section>
 
       <section id="about" className="scroll-mt-20 pt-40 pb-40">
-        <Reveal className="mx-auto grid max-w-6xl grid-cols-1 gap-12 px-6 sm:grid-cols-2 sm:gap-16">
-          <div className="flex flex-col sm:h-full sm:justify-between">
-            <div>
-              <h2 className="text-3xl font-semibold text-foreground">{t.about.heading}</h2>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{t.about.intro}</p>
-              <div className="mt-14 grid grid-cols-[60%_1fr] gap-8">
-                <div>
-                  <h3 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-                    {t.about.skillsHeading}
-                  </h3>
-                  <ul className="mt-4 space-y-2 text-lg leading-relaxed text-muted">
-                    {t.about.skills.map((skill) => (
-                      <li key={skill} className="flex items-center gap-3">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6200B3]" />
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm font-semibold tracking-wide text-foreground uppercase">
-                    {t.about.toolsHeading}
-                  </h3>
-                  <ul className="mt-4 space-y-2 text-lg leading-relaxed text-muted">
-                    {tools.map((tool) => (
-                      <li key={tool} className="flex items-center gap-3">
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6200B3]" />
-                        {tool}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+        <Reveal className="mx-auto grid max-w-6xl 2xl:max-w-7xl grid-cols-1 gap-12 px-6 sm:grid-cols-2 sm:gap-16">
+          <div className="flex flex-col sm:h-full sm:justify-center">
+            <h2 className="text-3xl font-semibold text-foreground">{t.about.heading}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{t.about.intro}</p>
+            <div className="mt-14 grid grid-cols-[60%_1fr] gap-8">
+              <Reveal delay={0}>
+                <h3 className="text-sm font-semibold tracking-wide text-foreground uppercase">
+                  {t.about.skillsHeading}
+                </h3>
+                <ul className="mt-4 space-y-2 text-lg leading-relaxed text-muted">
+                  {t.about.skills.map((skill) => (
+                    <li key={skill} className="flex items-center gap-3">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6200B3]" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+              <Reveal delay={150}>
+                <h3 className="text-sm font-semibold tracking-wide text-foreground uppercase">
+                  {t.about.toolsHeading}
+                </h3>
+                <ul className="mt-4 space-y-2 text-lg leading-relaxed text-muted">
+                  {tools.map((tool) => (
+                    <li key={tool} className="flex items-center gap-3">
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6200B3]" />
+                      {tool}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
             </div>
             <CvModalButton label={t.home.aboutCta} />
           </div>
           <div className="relative aspect-[4/5] w-full overflow-hidden">
-            <Image src="/about.png" alt="" fill sizes="(min-width: 640px) 45vw, 90vw" className="object-cover" />
+            <Parallax strength={30} zoom={0.15} className="absolute -inset-y-12 inset-x-0">
+              <Image src="/about.png" alt="" fill sizes="(min-width: 640px) 45vw, 90vw" className="object-cover" />
+            </Parallax>
           </div>
         </Reveal>
       </section>
 
       <section className="pb-40">
-        <div className="mx-auto max-w-6xl px-6">
+        <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6">
           <Reveal>
             <h2 className="text-3xl font-semibold text-foreground">{t.home.pricingHeading}</h2>
           </Reveal>

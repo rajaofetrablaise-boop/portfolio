@@ -56,7 +56,7 @@ export function CvModalButton({ label }: { label: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group mt-14 inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-[#6200B3] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 sm:mt-8 sm:w-fit sm:justify-start"
+        className="group mt-14 inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-[#6200B3] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 sm:w-fit sm:justify-start"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

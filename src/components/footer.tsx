@@ -56,7 +56,7 @@ export function Footer() {
 
   return (
     <footer id="contact" className="mt-20 scroll-mt-20">
-      <Reveal className="mx-auto max-w-6xl px-6 py-28">
+      <Reveal className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 py-28">
         <p className="text-lg font-medium text-black">{t.footer.ctaLabel}</p>
         <div className="group relative mt-4 inline-block">
           <button
@@ -94,7 +94,7 @@ export function Footer() {
           </span>
         </div>
       </Reveal>
-      <Reveal className="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+      <Reveal className="mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-4 px-6 py-10 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {year} Blaise Rajaofetra. {t.footer.rights}
         </p>
