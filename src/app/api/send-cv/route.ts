@@ -39,6 +39,13 @@ export async function POST(request: NextRequest) {
       ],
     });
 
+    await transporter.sendMail({
+      from: `"Portfolio" <${user}>`,
+      to: user,
+      subject: "Nouveau téléchargement de CV",
+      text: `${email} a téléchargé votre CV.`,
+    });
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Failed to send CV email:", error);
