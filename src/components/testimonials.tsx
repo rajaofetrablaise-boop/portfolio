@@ -52,9 +52,9 @@ export function Testimonials() {
   }, [index, inView]);
 
   return (
-    <section ref={sectionRef}>
+    <section ref={sectionRef} className="bg-black py-40">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 bg-black sm:h-[480px] sm:grid-cols-[35%_1fr]">
+        <div className="grid grid-cols-1 sm:h-[480px] sm:grid-cols-[35%_1fr]">
           <div className="relative aspect-[4/5] w-full overflow-hidden sm:h-full sm:aspect-auto">
             {photo.image ? (
               <Image
@@ -74,13 +74,13 @@ export function Testimonials() {
             )}
           </div>
 
-          <div className="flex min-h-[320px] flex-col overflow-hidden px-6 py-16 sm:h-full sm:px-16 sm:py-16">
+          <div className="flex min-h-[320px] flex-col overflow-hidden bg-white px-6 py-16 sm:h-full sm:px-16 sm:py-16">
             <div className="flex flex-1 flex-col justify-center">
               <div
                 key={index}
                 className={direction === 1 ? "animate-testimonial-in-right" : "animate-testimonial-in-left"}
               >
-                <blockquote className="max-w-xl text-xl leading-relaxed font-medium text-white sm:text-2xl">
+                <blockquote className="max-w-xl text-xl leading-relaxed font-medium text-black sm:text-2xl">
                   “
                   {testimonial.quote[lang].split("\n").map((line, i, lines) => (
                     <span key={i}>
@@ -91,20 +91,38 @@ export function Testimonials() {
                   ”
                 </blockquote>
                 <div className="mt-6">
-                  <p className="font-semibold text-white">{testimonial.name}</p>
+                  <p className="font-semibold text-black">{testimonial.name}</p>
                   {testimonial.role[lang] && (
-                    <p className="mt-1 text-sm text-white/60">{testimonial.role[lang]}</p>
+                    <p className="mt-1 text-sm text-black/60">{testimonial.role[lang]}</p>
                   )}
                 </div>
               </div>
             </div>
             <div className="flex items-center justify-between pt-8">
+              <div className="flex items-center gap-0.5">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => goToIndex(i)}
+                    aria-label={`Go to testimonial ${i + 1}`}
+                    aria-current={i === index}
+                    className="cursor-pointer p-1.5"
+                  >
+                    <span
+                      className={`block h-2 rounded-full transition-all ${
+                        i === index ? "w-6 bg-black" : "w-2 bg-black/30"
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
               <div className="flex gap-2">
                 <button
                   type="button"
                   onClick={goToPrevious}
                   aria-label="Previous testimonial"
-                  className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-zinc-900 text-white transition-colors hover:bg-white hover:text-black"
+                  className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-zinc-100 text-black transition-colors hover:bg-black hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +142,7 @@ export function Testimonials() {
                   type="button"
                   onClick={goToNext}
                   aria-label="Next testimonial"
-                  className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-zinc-900 text-white transition-colors hover:bg-white hover:text-black"
+                  className="flex h-14 w-14 cursor-pointer items-center justify-center rounded-full bg-zinc-100 text-black transition-colors hover:bg-black hover:text-white"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -140,24 +158,6 @@ export function Testimonials() {
                     <path d="m9 18 6-6-6-6" />
                   </svg>
                 </button>
-              </div>
-              <div className="flex items-center gap-0.5">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => goToIndex(i)}
-                    aria-label={`Go to testimonial ${i + 1}`}
-                    aria-current={i === index}
-                    className="cursor-pointer p-1.5"
-                  >
-                    <span
-                      className={`block h-2 rounded-full transition-all ${
-                        i === index ? "w-6 bg-white" : "w-2 bg-white/30"
-                      }`}
-                    />
-                  </button>
-                ))}
               </div>
             </div>
           </div>

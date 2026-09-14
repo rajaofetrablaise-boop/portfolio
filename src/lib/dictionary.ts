@@ -53,8 +53,8 @@ export const dictionaries = {
         {
           name: "SaaS (Design + Dev)",
           pricePrefix: "À partir de",
-          price: "2 000€",
-          description: "Pour lancer votre produit SaaS, de la conception à la mise en ligne.",
+          price: "2 500€",
+          description: "Donnez vie à votre produit SaaS, de la conception au MVP fonctionnel.",
           features: [
             "Design UX/UI sur-mesure",
             "Stack : Next.js, Supabase",
@@ -151,8 +151,8 @@ export const dictionaries = {
         {
           name: "SaaS (Design + Dev)",
           pricePrefix: "From",
-          price: "$2,000",
-          description: "Launch your SaaS product, from design to deployment.",
+          price: "$2,500",
+          description: "Bring your SaaS product to life, from design to a working MVP.",
           features: [
             "Custom UX/UI design",
             "Stack: Next.js, Supabase",
