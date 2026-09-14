@@ -56,7 +56,7 @@ export function CvModalButton({ label }: { label: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group mt-14 inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-[#6200B3] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 sm:w-fit sm:justify-start"
+        className="mt-14 inline-flex w-full cursor-pointer items-center justify-center gap-2 bg-[#15616D] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 sm:w-fit sm:justify-start"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -68,11 +68,10 @@ export function CvModalButton({ label }: { label: string }) {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-6 w-6 opacity-100 transition-all duration-200 sm:w-0 sm:opacity-0 sm:group-hover:w-6 sm:group-hover:opacity-100"
+          className="h-6 w-6"
         >
-          <path d="M12 17V3" />
-          <path d="m6 11 6 6 6-6" />
-          <path d="M19 21H5" />
+          <path d="M12 5v14" />
+          <path d="m19 12-7 7-7-7" />
         </svg>
         {label}
       </button>
@@ -159,7 +158,7 @@ export function CvModalButton({ label }: { label: string }) {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="mt-2 cursor-pointer bg-[#6200B3] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="mt-2 cursor-pointer bg-[#15616D] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {status === "sending" ? t.cvModal.sending : t.cvModal.submitCta}
                   </button>

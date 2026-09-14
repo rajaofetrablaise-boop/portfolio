@@ -6,7 +6,7 @@ export const dictionaries = {
     whatsapp: { tooltip: "Discutons par WhatsApp" },
     hero: {
       kicker: "Product UX/UI Designer",
-      location: "Basé à Madagascar, Disponible à l'international",
+      location: "Basé à Madagascar · Collaborations internationales",
       bio: "Je transforme des besoins produit complexes en interfaces claires et utilisables.",
       ctaPrimary: "Réserver un appel",
       ctaSecondary: "Voir mes projets",
@@ -104,7 +104,7 @@ export const dictionaries = {
     whatsapp: { tooltip: "Chat on WhatsApp" },
     hero: {
       kicker: "Product UX/UI Designer",
-      location: "Based in Madagascar, Available internationally",
+      location: "Based in Madagascar · International collaborations",
       bio: "I turn complex\nproduct needs into clear,\nusable interfaces.",
       ctaPrimary: "Book a call",
       ctaSecondary: "See my work",

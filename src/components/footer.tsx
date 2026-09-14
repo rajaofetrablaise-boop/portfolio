@@ -62,7 +62,7 @@ export function Footer() {
           <button
             type="button"
             onClick={handleCopyEmail}
-            className="block cursor-pointer text-left text-4xl font-bold text-foreground transition-colors hover:text-[#6200B3] sm:text-6xl"
+            className="block cursor-pointer text-left text-4xl font-bold text-foreground transition-colors hover:text-[#15616D] sm:text-6xl"
           >
             <CharReveal text="designbyblaise" className="block sm:inline" />
             <CharReveal text="@gmail.com" className="block sm:inline" />

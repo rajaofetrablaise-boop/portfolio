@@ -30,7 +30,7 @@ export const projects: Project[] = [
     role: { fr: "Recherche & UI Design", en: "Research & UI design" },
     year: "2024",
     tags: ["Application mobile", "Logistique"],
-    gradient: ["#fdba74", "#c2410c"],
+    gradient: ["#6bb0ca", "#087ca7"],
     cover: "/CaseCover1.png?v=6",
     externalUrl: "https://www.behance.net/gallery/255425233/UXUI-Case-Study-Crowdshipping-App",
   },

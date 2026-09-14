@@ -62,7 +62,7 @@ export default function Home() {
               href="https://calendly.com/abrajaofetra/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex w-full items-center justify-center gap-2 bg-[#6200B3] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
+              className="group inline-flex w-full items-center justify-center gap-2 bg-[#15616D] px-8 py-4 text-base font-medium text-white transition-opacity hover:opacity-90 sm:w-auto"
             >
               {t.hero.ctaPrimary}
               <svg
@@ -83,7 +83,7 @@ export default function Home() {
             </a>
             <Link
               href="#work"
-              className="w-full bg-white px-8 py-4 text-center text-base font-medium text-[#6200B3] transition-opacity hover:opacity-70 sm:w-auto"
+              className="w-full bg-white px-8 py-4 text-center text-base font-medium text-[#15616D] transition-opacity hover:opacity-70 sm:w-auto"
             >
               {t.hero.ctaSecondary}
             </Link>
@@ -172,7 +172,7 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-black py-32">
         <Parallax strength={50} className="absolute -inset-y-16 inset-x-0">
-          <Image src="/quotebackground.png?v=2" alt="" fill className="object-cover" />
+          <Image src="/quotebackground.png?v=5" alt="" fill className="object-cover" />
         </Parallax>
         <Reveal className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6">
           <svg
@@ -180,7 +180,7 @@ export default function Home() {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 191.029 191.029"
             fill="currentColor"
-            className="h-8 w-8 text-[#c9a227] sm:h-10 sm:w-10"
+            className="h-8 w-8 text-[#15616D] sm:h-10 sm:w-10"
           >
             <path d="M44.33,88.474v15.377h38.417v82.745H0v-82.745h0.002V88.474c0-31.225,8.984-54.411,26.704-68.918C38.964,9.521,54.48,4.433,72.824,4.433v44.326C62.866,48.759,44.33,48.759,44.33,88.474z M181.107,48.759V4.433c-18.343,0-33.859,5.088-46.117,15.123c-17.72,14.507-26.705,37.694-26.705,68.918v15.377h0v82.745h82.744v-82.745h-38.417V88.474C152.613,48.759,171.149,48.759,181.107,48.759z" />
           </svg>
@@ -206,7 +206,7 @@ export default function Home() {
                 <ul className="mt-4 space-y-2 text-lg leading-relaxed text-muted">
                   {t.about.skills.map((skill) => (
                     <li key={skill} className="flex items-center gap-3">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6200B3]" />
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#15616D]" />
                       {skill}
                     </li>
                   ))}
@@ -219,7 +219,7 @@ export default function Home() {
                 <ul className="mt-4 space-y-2 text-lg leading-relaxed text-muted">
                   {tools.map((tool) => (
                     <li key={tool} className="flex items-center gap-3">
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#6200B3]" />
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#15616D]" />
                       {tool}
                     </li>
                   ))}
@@ -244,21 +244,31 @@ export default function Home() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {t.home.pricingPlans.map((plan, i) => (
               <Reveal key={plan.name} delay={i * 250}>
-                <div className="flex flex-col bg-[#ececee] p-8 pt-12 pb-12">
-                  <h3 className="text-xl font-bold text-foreground">{plan.name}</h3>
-                  <p className={`mt-6 text-sm ${i === 0 ? "text-transparent" : "text-muted"}`}>
+                <div className={`flex flex-col p-8 pt-12 pb-12 ${i === 1 ? "bg-black" : "bg-[#ececee]"}`}>
+                  <h3 className={`text-xl font-bold ${i === 1 ? "text-white" : "text-foreground"}`}>
+                    {plan.name}
+                  </h3>
+                  <p
+                    className={`mt-6 text-sm ${
+                      i === 0 ? "text-transparent" : i === 1 ? "text-white/70" : "text-muted"
+                    }`}
+                  >
                     {plan.pricePrefix}
                   </p>
-                  <p className="mt-1 text-4xl font-extrabold text-foreground">{plan.price}</p>
-                  <p className="mt-3 text-sm text-muted">{plan.description}</p>
+                  <p className={`mt-1 text-4xl font-extrabold ${i === 1 ? "text-white" : "text-foreground"}`}>
+                    {plan.price}
+                  </p>
+                  <p className={`mt-3 text-sm ${i === 1 ? "text-white/70" : "text-muted"}`}>
+                    {plan.description}
+                  </p>
                   <a
                     href="https://calendly.com/abrajaofetra/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group mt-6 flex w-full items-center justify-center gap-2 px-8 py-4 text-sm font-medium ${
+                    className={`group mt-10 flex w-full items-center justify-center gap-2 px-8 py-4 text-sm font-medium ${
                       i === 1
-                        ? "bg-[#6200B3] text-white transition-opacity hover:opacity-70"
-                        : "bg-white text-[#6200B3]"
+                        ? "bg-[#15616D] text-white transition-opacity hover:opacity-70"
+                        : "bg-white text-[#15616D]"
                     }`}
                   >
                     {t.home.pricingCta}
@@ -278,9 +288,12 @@ export default function Home() {
                       <path d="M19 5L5 19" />
                     </svg>
                   </a>
-                  <ul className="mt-6 flex flex-1 flex-col gap-3">
+                  <ul className="mt-10 flex flex-1 flex-col gap-3">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-foreground">
+                      <li
+                        key={feature}
+                        className={`flex items-center gap-2 text-sm ${i === 1 ? "text-white" : "text-foreground"}`}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="16"

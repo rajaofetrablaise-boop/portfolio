@@ -17,7 +17,7 @@ export const testimonials: Testimonial[] = [
     },
     name: "XKS Group",
     role: { fr: "", en: "" },
-    gradient: ["#fdba74", "#c2410c"],
+    gradient: ["#6bb0ca", "#087ca7"],
     image: "/testimonial.png",
   },
   {

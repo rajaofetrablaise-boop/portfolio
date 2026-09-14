@@ -22,7 +22,14 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       // One-time sync from localStorage on mount; SSR always starts at "fr".
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLang(stored);
+      return;
     }
+
+    // No saved preference yet: default based on the visitor's browser language
+    // (French-speaking locales get French, everyone else gets English).
+    const browserLang = navigator.language || navigator.languages?.[0] || "";
+    const detected: Lang = browserLang.toLowerCase().startsWith("fr") ? "fr" : "en";
+    setLang(detected);
   }, []);
 
   useEffect(() => {
