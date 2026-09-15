@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://blaiserajaofetra.com/sitemap.xml",
+    sitemap: "https://www.blaiserajaofetra.com/sitemap.xml",
   };
 }
