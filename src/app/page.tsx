@@ -54,7 +54,7 @@ export default function Home() {
           preload="auto"
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         >
-          <source src="/12686077_1280_720_30fps.mp4" type="video/mp4" />
+          <source src="/12686077_1280_720_30fps.mp4?v=2" type="video/mp4" />
         </video>
 
         <Reveal className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 py-32 sm:py-40">
