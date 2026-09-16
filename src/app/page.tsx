@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/language-context";
@@ -16,28 +15,10 @@ import { Parallax } from "@/components/parallax";
 
 export default function Home() {
   const { t, lang } = useLanguage();
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Some mobile browsers (notably a few Android WebViews) miss the
-    // initial autoplay attempt during React hydration; retry explicitly.
-    videoRef.current?.play().catch(() => {});
-  }, []);
 
   return (
     <div>
       <section className="relative -mt-20 flex flex-col justify-center overflow-hidden">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
-        >
-          <source src="/12686077_1280_720_30fps.mp4" type="video/mp4" />
-        </video>
 
         <Reveal className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 py-32 sm:py-40">
           <p className="text-lg font-medium text-accent">{t.hero.kicker}</p>
