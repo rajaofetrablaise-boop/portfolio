@@ -239,7 +239,7 @@ export default function Home() {
             <CvModalButton label={t.home.aboutCta} />
           </div>
           <div className="relative aspect-square w-full overflow-hidden">
-            <Parallax strength={30} zoom={0.08} className="absolute -inset-y-12 inset-x-0">
+            <Parallax strength={30} className="absolute -inset-y-12 inset-x-0">
               <Image src="/about.png?v=2" alt="" fill sizes="(min-width: 640px) 45vw, 90vw" className="object-cover" />
             </Parallax>
           </div>
