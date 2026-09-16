@@ -74,7 +74,7 @@ export default function Home() {
             </a>
             <Link
               href="#work"
-              className="w-full bg-white px-8 py-4 text-center text-base font-medium text-[#15616D] transition-opacity hover:opacity-70 sm:w-auto"
+              className="w-full border border-[#15616D] bg-white px-8 py-4 text-center text-base font-medium text-[#15616D] transition-opacity hover:opacity-70 sm:w-auto"
             >
               {t.hero.ctaSecondary}
             </Link>
