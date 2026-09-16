@@ -22,6 +22,23 @@ export default function Home() {
     // Some mobile browsers (notably a few Android WebViews) miss the
     // initial autoplay attempt during React hydration; retry explicitly.
     videoRef.current?.play().catch(() => {});
+
+    // Safari sometimes blocks the silent autoplay attempt entirely (Low
+    // Power Mode, per-site Auto-Play setting) and shows its own paused
+    // overlay. A real user gesture reliably unlocks playback, so retry on
+    // the first tap/scroll anywhere on the page.
+    const retryPlay = () => {
+      videoRef.current?.play().catch(() => {});
+    };
+    document.addEventListener("touchstart", retryPlay, { once: true, passive: true });
+    document.addEventListener("scroll", retryPlay, { once: true, passive: true });
+    document.addEventListener("click", retryPlay, { once: true });
+
+    return () => {
+      document.removeEventListener("touchstart", retryPlay);
+      document.removeEventListener("scroll", retryPlay);
+      document.removeEventListener("click", retryPlay);
+    };
   }, []);
 
   return (
